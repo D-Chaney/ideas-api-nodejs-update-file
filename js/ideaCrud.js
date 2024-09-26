@@ -3,34 +3,46 @@ const fs = require('fs/promises');
 const path = require('path');
 const ideas = require('../database/ideasData');
 
-function addPostToFile(idea, type) {
+async function addPostToFile(idea, type) {
 
     const { text, tag, username } = idea;
 
-    // Check if all necessary fields are present
-    if (!text || !tag || !username) {
-        return res.status(400).json({ message: 'Text, Tag and Username are required fields' });
-    }
 
     if(type === 'post') {
+         // Check if all necessary fields are present
+        if (!text || !tag || !username) {
+            return res.status(400).json({ message: 'Text, Tag and Username are required fields' });
+        }
+
         ideas.push(idea);
     } else if(type === 'put') {
-        const index = ideas.findIndex((idea) => idea.id === +idea.id);
+
+         // Check if all necessary fields are present
+         if (!text || !tag) {
+            return res.status(400).json({ message: 'Text and Tagare required fields' });
+        }
+
+        const index = ideas.findIndex((item) => item.id === +idea.id);
         ideas[index] = idea;
+
+    } else if (type === 'delete') {
+        const index = ideas.findIndex((item) => item.id === +idea.id);
+        ideas.splice(index, 1);
     }
 
-    writeIdeaFile(idea)
+    const result = await writeIdeaFile(ideas, idea);
+    return result;
 }
 
-async function writeIdeaFile(idea) {    
+async function writeIdeaFile(ideasArray, idea) {    
     try {
         // Update the file with the new array of ideas using async/await
-        await fs.writeFile(path.join(__dirname, '../database/ideasData.js'), generateFileContent(ideas), 'utf8');
+        await fs.writeFile(path.join(__dirname, '../database/ideasData.js'), generateFileContent(ideasArray), 'utf8');
         
         // Send a success response
-        res.status(201).json({ message: 'Idea added successfully', idea: idea });
+        return { success: true, message: 'success',data: idea };
     } catch (error) {        
-        return res.status(500).json({ message: 'Failed to update ideas file', error: error });
+        return { success: false, error: 'Failed to update ideas file' };
     }
     
 }
@@ -41,5 +53,3 @@ async function writeIdeaFile(idea) {
 }
 
 module.exports = addPostToFile;
-
-

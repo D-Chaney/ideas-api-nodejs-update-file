@@ -30,25 +30,32 @@ router.get('/ideas/:id', (req, res) => {
 /****ALL POST REQUESTS ROUTING ****************************************************
 *************************************************************************/
 
-router.post('/ideas', (req, res) => {
+router.post('/ideas', async(req, res) => {
     const idea = {
         id: ideas.length + 1,
         text: req.body.text,
         tag: req.body.tag,
         username: req.body.username,
         date: new Date().toLocaleString().slice(0, 10),
+        timestamp: new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true })
+
     };
 
-    addPostToFile(idea, 'post');
+    const result = await addPostToFile(idea, 'post');
 
-    res.send({success: true, data: idea});
+    if (result.success) {
+         result.message = 'Post added successfully';
+        res.status(201).json(result);
+    } else {
+        res.status(500).json(result);
+    }
 });
 
 /****ALL PUT REQUESTS ROUTING ****************************************************
 *************************************************************************/
 
 //Modify an existing idea in the api
-router.put('/ideas/:id', (req, res) => {
+router.put('/ideas/:id', async(req, res) => {
     const idea = ideas.find((idea) => idea.id === +req.params.id);
 
     if (!idea) {
@@ -59,11 +66,40 @@ router.put('/ideas/:id', (req, res) => {
 
     idea.text = req.body.text || idea.text;
     idea.tag = req.body.tag || idea.tag;
-    idea.date = new Date().toLocaleString().slice(0, 10);    
+    idea.date = new Date().toLocaleString().slice(0, 10);  
+    idea.timestamp = new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true })
 
-    addPostToFile(idea,'put');
+    const result = await addPostToFile(idea,'put');
 
-    res.json({success: true, data: idea});
+    if (result.success) {
+        result.message = `Post id:${idea.id} modified successfully`;
+        res.json(result);
+    } else {
+        res.status(500).json(result);
+    }
+});
+
+/****ALL DELETE REQUESTS ROUTING ****************************************************
+*************************************************************************/
+
+//Delete an existing idea from the api
+router.delete('/ideas/:id', async(req, res) => {
+    const idea = ideas.find((idea) => idea.id === +req.params.id);
+
+    if (!idea) {
+        return res
+        .status(404)
+        .json({success: false, error: 'Idea not found'});   
+    }
+
+    const result = await addPostToFile(idea, 'delete');
+
+    if (result.success) {
+        result.message = `Post id:${idea.id} deleted successfully`;
+        res.json(result);
+    } else {
+        res.status(500).json(result);
+    }
 });
 
 
