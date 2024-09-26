@@ -34,6 +34,15 @@ async function addPostToFile(idea, type) {
     return result;
 }
 
+async function deleteAllIdeas() {
+    try{
+        await fs.writeFile(path.join(__dirname,'../database/ideasData.js'), generateFileContent([]), 'utf8');
+        return { success: true, message: 'success' };
+    } catch (err) {
+        return { success: false, error: 'Failed to update ideas file' };    
+    }
+}   
+
 async function writeIdeaFile(ideasArray, idea) {    
     try {
         // Update the file with the new array of ideas using async/await
@@ -52,4 +61,4 @@ async function writeIdeaFile(ideasArray, idea) {
     return `const ideas = ${JSON.stringify(ideasArray, null, 4)};\n\nmodule.exports = ideas;`;
 }
 
-module.exports = addPostToFile;
+module.exports = { addPostToFile, deleteAllIdeas };

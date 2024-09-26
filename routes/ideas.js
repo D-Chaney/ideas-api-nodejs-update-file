@@ -2,7 +2,8 @@
 const express = require('express');
 const router = express.Router();
 const ideas = require('../database/ideasData');
-const addPostToFile = require('../js/ideaCrud');
+const { addPostToFile, deleteAllIdeas } = require('../js/ideaCrud');
+const {v4: uuidv4} = require('uuid');
 
 
 /****ALL GET REQUESTS ROUTING ****************************************************
@@ -33,6 +34,7 @@ router.get('/ideas/:id', (req, res) => {
 router.post('/ideas', async(req, res) => {
     const idea = {
         id: ideas.length + 1,
+        uuid: uuidv4(),
         text: req.body.text,
         tag: req.body.tag,
         username: req.body.username,
@@ -72,7 +74,7 @@ router.put('/ideas/:id', async(req, res) => {
     const result = await addPostToFile(idea,'put');
 
     if (result.success) {
-        result.message = `Post id:${idea.id} modified successfully`;
+        result.message = `Idea id:${idea.id} modified successfully`;
         res.json(result);
     } else {
         res.status(500).json(result);
@@ -81,6 +83,25 @@ router.put('/ideas/:id', async(req, res) => {
 
 /****ALL DELETE REQUESTS ROUTING ****************************************************
 *************************************************************************/
+
+//Delete all ideas from the api/DEVELOPEMENT TESTING ONLY!!!!!!!!!
+router.delete('/ideas/deleteall/:passcode', async(req, res) => {  
+
+    //const result = await deleteAllIdeas();
+    if(req.params.passcode === '8327') {
+        var result = await deleteAllIdeas();
+    } else {
+         res.status(401).json({success: false, message: 'passcode incorrect'});
+     }    
+
+    if (result.success) {
+        result.message = `deleted All Ideas successfully`;
+        res.json(result);
+    } else {
+        res.status(500).json(result);
+    }
+});
+
 
 //Delete an existing idea from the api
 router.delete('/ideas/:id', async(req, res) => {
@@ -95,12 +116,13 @@ router.delete('/ideas/:id', async(req, res) => {
     const result = await addPostToFile(idea, 'delete');
 
     if (result.success) {
-        result.message = `Post id:${idea.id} deleted successfully`;
+        result.message = `Idea id:${idea.id} deleted successfully`;
         res.json(result);
     } else {
         res.status(500).json(result);
     }
 });
+
 
 
 //Export the routes to server.js, ***DO NOT DELETE***
