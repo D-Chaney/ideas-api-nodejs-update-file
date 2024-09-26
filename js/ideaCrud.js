@@ -3,7 +3,7 @@ const fs = require('fs/promises');
 const path = require('path');
 const ideas = require('../database/ideasData');
 
-function addPostToFile(idea) {
+function addPostToFile(idea, type) {
 
     const { text, tag, username } = idea;
 
@@ -12,7 +12,12 @@ function addPostToFile(idea) {
         return res.status(400).json({ message: 'Text, Tag and Username are required fields' });
     }
 
-    ideas.push(idea);
+    if(type === 'post') {
+        ideas.push(idea);
+    } else if(type === 'put') {
+        const index = ideas.findIndex((idea) => idea.id === +idea.id);
+        ideas[index] = idea;
+    }
 
     writeIdeaFile(idea)
 }

@@ -39,10 +39,31 @@ router.post('/ideas', (req, res) => {
         date: new Date().toLocaleString().slice(0, 10),
     };
 
-    addPostToFile(idea);
+    addPostToFile(idea, 'post');
 
-    console.log(idea);
     res.send({success: true, data: idea});
+});
+
+/****ALL PUT REQUESTS ROUTING ****************************************************
+*************************************************************************/
+
+//Modify an existing idea in the api
+router.put('/ideas/:id', (req, res) => {
+    const idea = ideas.find((idea) => idea.id === +req.params.id);
+
+    if (!idea) {
+        return res
+        .status(404)
+        .json({success: false, error: 'Idea not found'});   
+    }
+
+    idea.text = req.body.text || idea.text;
+    idea.tag = req.body.tag || idea.tag;
+    idea.date = new Date().toLocaleString().slice(0, 10);    
+
+    addPostToFile(idea,'put');
+
+    res.json({success: true, data: idea});
 });
 
 

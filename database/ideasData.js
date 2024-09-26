@@ -1,10 +1,10 @@
 const ideas = [
     {
-        "id": 1,
-        "text": "Positive newsletter, a news letter that is positive and helpful to the readers",
-        "tag": "technology",
-        "username": "TonyStark",
-        "date": "2022-01-01"
+        "id": 15,
+        "text": "This is my new text 2",
+        "tag": "Technology",
+        "username": "Dominic Chaney",
+        "date": "9/26/2024,"
     },
     {
         "id": 2,
@@ -99,15 +99,15 @@ const ideas = [
     },
     {
         "id": 15,
-        "text": "Here is a new Idea for your",
-        "tag": "Tech",
+        "text": "This is my new text 2",
+        "tag": "Technology",
         "username": "Dominic Chaney",
-        "date": "9/25/2024,"
+        "date": "9/26/2024,"
     },
     {
         "id": 16,
-        "text": "I love new visions",
-        "tag": "Technology",
+        "text": "This is my new text",
+        "tag": "Inventory",
         "username": "Dominic Chaney",
         "date": "9/26/2024,"
     }
