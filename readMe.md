@@ -59,3 +59,7 @@ npm run serve
   ```
   localhost:3001/api/v1/ideas/deleteall/123456
   ```
+
+### 🤓 Thanks for visiting 👋
+
+###
