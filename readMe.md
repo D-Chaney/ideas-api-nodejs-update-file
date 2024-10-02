@@ -60,6 +60,10 @@ npm run serve
   localhost:3001/api/v1/ideas/deleteall/123456
   ```
 
-### 🤓 Thanks for visiting 👋
+## UUID
+- uuid's are generated but not currently set as the main identification at this time
 
-###
+#
+  
+### 🤓 Thanks you for visiting 👋
+
