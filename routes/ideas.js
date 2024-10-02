@@ -88,7 +88,7 @@ router.put('/ideas/:id', async(req, res) => {
 router.delete('/ideas/deleteall/:passcode', async(req, res) => {  
 
     //const result = await deleteAllIdeas();
-    if(req.params.passcode === '8327') {
+    if(req.params.passcode === '123456') {
         var result = await deleteAllIdeas();
     } else {
          res.status(401).json({success: false, message: 'passcode incorrect'});
