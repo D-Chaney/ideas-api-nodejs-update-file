@@ -1,4 +1,6 @@
-![Profile Banner](https://github.com/D-Chaney/D-Chaney/blob/main/LinkedIn_Banner.png?raw=true)
+![Project Banner](https://github.com/D-Chaney/ideas-api-nodejs-update-file/blob/master/NodeJs_Api_Banner.png?raw=true)
+
+
 
 ## Getting Started
 
