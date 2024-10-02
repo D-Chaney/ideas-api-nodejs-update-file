@@ -25,10 +25,10 @@ npm run serve
 
 ## USAGE 
 - Use an an api testing application to make the http request / api calls (ensure to use the correct port #):
-
-  - <a href="https://www.postman.com/"><img alt="Static Badge" src="https://img.shields.io/badge/Postman.com-orange?style=for-the-badge&logo=Postman&logoColor=white&labelColor=grey"></a>
-
-  - <a href="https://insomnia.rest/"><img alt="Static Badge" src="https://img.shields.io/badge/insomnia.rest-purple?style=for-the-badge&logo=insomnia&logoColor=white&labelColor=grey"></a>
+  
+  <a href="https://www.postman.com/"><img alt="Static Badge" src="https://img.shields.io/badge/Postman.com-orange?style=for-the-badge&logo=Postman&logoColor=white&labelColor=grey"></a>
+  <h4>OR</h4>
+  <a href="https://insomnia.rest/"><img alt="Static Badge" src="https://img.shields.io/badge/insomnia.rest-purple?style=for-the-badge&logo=insomnia&logoColor=white&labelColor=grey"></a>
 
 - (Method: GET) - Get all the ideas from the API 
   ```
