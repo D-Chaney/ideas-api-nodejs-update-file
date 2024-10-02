@@ -18,6 +18,11 @@ This is an application for testing API developement on localhost. The applicatio
   git clone https://github.com/D-Chaney/ideas-api-nodejs-update-file.git
   ```
 
+- Remote the remote url settings from your local copy
+  ```
+  git remote remove origin
+  ```
+
 - In the .env file, be sure to set your desired port number when running on localhost (currently set to port 3001)
 
 - This application requires [list of dependencies/requirements] to run. You can install them by running the following command:
