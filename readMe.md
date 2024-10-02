@@ -9,6 +9,8 @@ This is an application for testing API developement on localhost. The applicatio
 
 ## Getting Started
 
+- clone this repository to your local computer
+
 - In the .env file, be sure to set your desired port number when running on localhost
 
 - This application requires [list of dependencies/requirements] to run. You can install them by running the following command:
