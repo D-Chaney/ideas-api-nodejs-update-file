@@ -9,7 +9,7 @@ This is an application for testing API developement on localhost. The applicatio
 
 ## Getting Started
 
-- clone this repository to your local computer
+- Clone this repository to your local computer
 
 - In the .env file, be sure to set your desired port number when running on localhost
 
