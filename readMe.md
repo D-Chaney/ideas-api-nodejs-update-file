@@ -10,6 +10,9 @@ This is an application for testing API developement on localhost. The applicatio
 ## GETTING STARTED
 
 - Clone this repository to your local computer
+  ```
+  https://github.com/D-Chaney/ideas-api-nodejs-update-file.git
+  ```
 
 - In the .env file, be sure to set your desired port number when running on localhost (currently set to port 3001)
 
