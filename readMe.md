@@ -10,7 +10,8 @@ This is an application for testing API developement on localhost. The applicatio
 ## GETTING STARTED
 
 - Ensure NodeJs is installed on your local machine:
-  <a href="https://nodejs.org/en"><img src="https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white"></a>
+  
+  <a href="https://nodejs.org/en"><img src="https://img.shields.io/badge/Go_to_nodejs.org-6DA55F?style=for-the-badge&logo=node.js&logoColor=white"></a>
 
 - Clone this repository to your local computer
   ```
