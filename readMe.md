@@ -9,6 +9,9 @@ This is an application for testing API developement on localhost. The applicatio
 
 ## GETTING STARTED
 
+- Ensure NodeJs is installed on your local machine:
+  <a href="https://nodejs.org/en"><img src="https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white"></a>
+
 - Clone this repository to your local computer
   ```
   https://github.com/D-Chaney/ideas-api-nodejs-update-file.git
@@ -50,7 +53,8 @@ npm run serve
   ```
   localhost:3001/api/v1/ideas/1
   ```
+  
 - (Method: DELETE) - Delete all the ideas at once (used for testing, change passcode if desired)
   ```
   localhost:3001/api/v1/ideas/deleteall/123456
- ```
+  ```
