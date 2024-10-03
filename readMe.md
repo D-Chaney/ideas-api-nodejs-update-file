@@ -15,7 +15,12 @@ This is an application for testing API developement on localhost. The applicatio
 
 - Clone this repository to your local computer
   ```
-  https://github.com/D-Chaney/ideas-api-nodejs-update-file.git
+  git clone https://github.com/D-Chaney/ideas-api-nodejs-update-file.git
+  ```
+
+- Remote the remote url settings from your local copy
+  ```
+  git remote remove origin
   ```
 
 - In the .env file, be sure to set your desired port number when running on localhost (currently set to port 3001)
@@ -60,6 +65,10 @@ npm run serve
   localhost:3001/api/v1/ideas/deleteall/123456
   ```
 
-### 🤓 Thanks for visiting 👋
+## UUID
+- uuid's are generated but not currently set as the main identification at this time
 
-###
+#
+  
+### 🤓 Thanks you for visiting 👋
+
