@@ -1,48 +1,48 @@
 const ideas = [
     {
         "id": 1,
-        "uuid": "42a4a109-1809-43bf-832e-68794900a9ba",
-        "text": "I love what I do 1",
+        "uuid": "4381f896-636e-4618-9562-73ed04e5c7e7",
+        "text": "Create a flying suite like Iron Man",
         "tag": "Technology",
-        "username": "Dominic Chaney",
-        "date": "9/26/2024,",
-        "timestamp": "6:56:14 PM"
+        "username": "Michael B",
+        "date": "10/3/2024,",
+        "timestamp": "10:12:40 AM"
     },
     {
         "id": 2,
-        "uuid": "fcf8c6de-f948-4af6-9bb1-c82c828f9429",
-        "text": "I love what I do 2",
-        "tag": "Technology",
-        "username": "Dominic Chaney",
-        "date": "9/26/2024,",
-        "timestamp": "6:56:19 PM"
+        "uuid": "5c38f830-140b-413d-890c-e9c8ccf88828",
+        "text": "Develop a new clothing brand inspired by Michael Kors",
+        "tag": "Fashion",
+        "username": "Donte Designer",
+        "date": "10/3/2024,",
+        "timestamp": "10:14:27 AM"
     },
     {
         "id": 3,
-        "uuid": "a6dc5c66-9a59-4353-a343-7b155d1e16cc",
-        "text": "I love what I do 3",
+        "uuid": "81f2a38d-2a46-4174-a81d-8c80144b6fd4",
+        "text": "Develop a phone charger that generates its on electriciy",
         "tag": "Technology",
-        "username": "Dominic Chaney",
-        "date": "9/26/2024,",
-        "timestamp": "6:56:23 PM"
+        "username": "N. Tesla",
+        "date": "10/3/2024,",
+        "timestamp": "10:16:21 AM"
     },
     {
         "id": 4,
-        "uuid": "8e7f567c-3b8c-48f2-9bf3-f9bdecd498cd",
-        "text": "I love what I do 4",
+        "uuid": "5a271b4b-d5b4-44ad-808e-58f9b62430a9",
+        "text": "Develop an application for service providers to manage every aspect of the company. ",
         "tag": "Technology",
-        "username": "Dominic Chaney",
-        "date": "9/26/2024,",
-        "timestamp": "6:56:27 PM"
+        "username": "S. Productions",
+        "date": "10/3/2024,",
+        "timestamp": "10:19:12 AM"
     },
     {
         "id": 5,
-        "uuid": "7e5cc847-8fe8-4168-a078-023c0ac69346",
-        "text": "I love what I do 5",
+        "uuid": "6164a679-ef43-499d-90e6-0ce5ea1182d5",
+        "text": "Develop the next high tech flying automobile",
         "tag": "Technology",
-        "username": "Dominic Chaney",
-        "date": "9/26/2024,",
-        "timestamp": "6:56:30 PM"
+        "username": "Tesla",
+        "date": "10/3/2024,",
+        "timestamp": "10:20:36 AM"
     }
 ];
 

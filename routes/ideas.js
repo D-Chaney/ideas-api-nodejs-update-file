@@ -5,28 +5,41 @@ const ideas = require('../database/ideasData');
 const { addPostToFile, deleteAllIdeas } = require('../js/ideaCrud');
 const {v4: uuidv4} = require('uuid');
 
-
 /****ALL GET REQUESTS ROUTING ****************************************************
 *************************************************************************/
 
 //Get all ideas from the api
-router.get('/ideas', (req, res) => {       
-    res.json({success: true, data: ideas});    
+router.get('/ideas', (req, res) => {   
+    if (ideas.length === 0) {        
+        console.log("Ideas Failed length",ideas.length)
+        return res
+        .status(200)
+        .json({success: false, error: 'No Ideas at this time'});   
+    }else {
+        return res.json({success: true, data: ideas});
+    }
+       
 });
 
 //Get a single idea from the api
 router.get('/ideas/:id', (req, res) => {
     const idea = ideas.find((idea) => idea.id === +req.params.id);
 
-    if (!idea) {
+    if (ideas.length === 0) {
+
+        console.log("Ideas Failed length",ideas.length)
+        return res
+        .status(404)
+        .json({success: false, error: 'No ideas found'});   
+    }else if (!idea) {
         return res
         .status(404)
         .json({success: false, error: 'Idea not found'});   
+    }else {
+
+        return res.json({success: true, data: idea});
     }
-
-    res.json({success: true, data: idea});
 });
-
 
 /****ALL POST REQUESTS ROUTING ****************************************************
 *************************************************************************/
@@ -47,9 +60,9 @@ router.post('/ideas', async(req, res) => {
 
     if (result.success) {
          result.message = 'Post added successfully';
-        res.status(201).json(result);
+        return res.status(201).json(result);
     } else {
-        res.status(500).json(result);
+        return res.status(500).json(result);
     }
 });
 
@@ -75,9 +88,9 @@ router.put('/ideas/:id', async(req, res) => {
 
     if (result.success) {
         result.message = `Idea id:${idea.id} modified successfully`;
-        res.json(result);
+        return res.json(result);
     } else {
-        res.status(500).json(result);
+        return res.status(500).json(result);
     }
 });
 
@@ -91,17 +104,16 @@ router.delete('/ideas/deleteall/:passcode', async(req, res) => {
     if(req.params.passcode === '123456') {
         var result = await deleteAllIdeas();
     } else {
-         res.status(401).json({success: false, message: 'passcode incorrect'});
+         return res.status(401).json({success: false, message: 'passcode incorrect'});
      }    
 
     if (result.success) {
         result.message = `deleted All Ideas successfully`;
-        res.json(result);
+        return res.json(result);
     } else {
-        res.status(500).json(result);
+        return res.status(500).json(result);
     }
 });
-
 
 //Delete an existing idea from the api
 router.delete('/ideas/:id', async(req, res) => {
@@ -117,13 +129,11 @@ router.delete('/ideas/:id', async(req, res) => {
 
     if (result.success) {
         result.message = `Idea id:${idea.id} deleted successfully`;
-        res.json(result);
+        return res.json(result);
     } else {
-        res.status(500).json(result);
+        return res.status(500).json(result);
     }
 });
-
-
 
 //Export the routes to server.js, ***DO NOT DELETE***
 module.exports = router;
