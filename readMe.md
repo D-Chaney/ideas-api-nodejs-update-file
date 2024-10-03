@@ -26,14 +26,14 @@ This is an application for testing API developement on localhost. The applicatio
 - In the .env file, be sure to set your desired port number when running on localhost (currently set to port 3001)
 
 - This application requires [list of dependencies/requirements] to run. You can install them by running the following command:
-```
-npm install
-```
+    ```
+    npm install
+    ```
 
 - To run the application, use the following command:
-```
-npm run serve
-```
+    ```
+    npm run serve
+    ```
 
 ## USAGE 
 - Use an an api testing application to make the http request / api calls (ensure to use the correct port #):
