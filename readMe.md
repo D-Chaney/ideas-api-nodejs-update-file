@@ -18,7 +18,7 @@ This is an application for testing API developement on localhost. The applicatio
   git clone https://github.com/D-Chaney/ideas-api-nodejs-update-file.git
   ```
 
-- Remote the remote url settings from your local copy
+- Remove the remote url settings from your local copy
   ```
   git remote remove origin
   ```
